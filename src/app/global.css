@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.productImage {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.all {
+  background-image: url("https://images.pexels.com/photos/2079428/pexels-photo-2079428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat-y;
+}
+.page-background {
+  background-color: blue;
+}
+
+.product-container {
+  box-shadow: 1px 6px 3px 2px rgba(0, 0, 0, 0.1);
+}
+.box-shadow {
+  box-shadow: 1px 6px 3px 2px rgba(0, 0, 0, 0.1);
+}
+.product-container p {
+  font-family: "Sedan", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 17px;
+}
+
+.gridContainer {
+  grid-template-rows: auto auto auto;
+  grid-template-columns: auto auto auto;
+}

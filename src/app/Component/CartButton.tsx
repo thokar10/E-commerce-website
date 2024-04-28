@@ -10,7 +10,7 @@ import { headers } from "next/headers";
 const AddToCart = ({ product_id, ProductPrice }: IProduct) => {
   console.log(product_id);
   const navigate = useRouter();
-  const [quantityValue, setQuantityValue] = useState(1);
+  const [quantityValue, setQuantityValue] = useState(0);
 
   const goto = async () => {
     try {
@@ -50,13 +50,13 @@ const AddToCart = ({ product_id, ProductPrice }: IProduct) => {
         <div className="flex  gap-10">
           <div>
             {" "}
-            <p>Quantity</p>
+            <p className="text-gray-500">Quantity</p>
           </div>
           <div className="flex items-center justify-center  gap-4">
             {" "}
             <Button
               onClick={() => {
-                if (quantityValue <= 1) {
+                if (quantityValue <= 0) {
                   return;
                 }
                 setQuantityValue(quantityValue - 1);
@@ -64,7 +64,7 @@ const AddToCart = ({ product_id, ProductPrice }: IProduct) => {
             >
               -
             </Button>
-            <p>{quantityValue}</p>
+            <p className="text-gray-500">{quantityValue}</p>
             <Button
               onClick={() => {
                 if (quantityValue > 4) {
@@ -77,18 +77,10 @@ const AddToCart = ({ product_id, ProductPrice }: IProduct) => {
             </Button>
           </div>
         </div>
-        <div className="flex  gap-4">
-          <Button type="primary" className="w-[50%] rounded-none">
-            Buy Now
-          </Button>
-          <Button
-            type="primary"
-            className="w-[50%] rounded-none"
-            onClick={goto}
-          >
-            Add to Cart
-          </Button>
-        </div>
+
+        <Button className="w-[100%]  rounded-none bg-yellow-300" onClick={goto}>
+          Add to Cart
+        </Button>
       </div>
     </>
   );

@@ -1,11 +1,12 @@
 import AddToCart from "@/app/Component/CartButton";
+import HeaderPage from "@/app/Component/HeaderPage";
 import axios from "axios";
 
 const page = async ({ params }: any) => {
   const { product_id } = params;
 
   const response = await axios.get(
-    `http://localhost:8000/products/productDetails/661535403b45824fa3218ddb`
+    `http://localhost:8000/products/productDetails/${product_id}`
   );
   console.log(response.data);
   const productDetails = response.data.productDetails;
@@ -13,19 +14,23 @@ const page = async ({ params }: any) => {
 
   return (
     <>
-      <div className="h-[100vh] w-[100vw] bg-gray-600 flex justify-center items-center">
-        <div className=" bg-white w-[70%] h-[80%] flex  py-8 p-4 ">
+      <HeaderPage />
+      <div className="flex justify-center  ">
+        {/* Adding overflow-hidden class to hide overflow */}
+        <div className="  w-[100%] h-max flex gap-7 p-20  ">
           <div
             className="productImage w-[60%] "
             style={{ backgroundImage: `url(${productDetails.ProductImage})` }}
           ></div>
 
-          <div className=" flex flex-col gap-10  w-[40%] p-6 ">
+          <div className=" flex flex-col gap-10 bg-[whitesmoke]  box-shadow  w-[30%] p-6 ">
             {" "}
-            <div className="box-shadow p-3 flex flex-col gap-2 items-center">
-              <p className="text-3xl">{productDetails.ProductName}</p>
+            <div className="box-shadow p-3 flex flex-col gap-2 items-center bg-white">
+              <p className="text-xl text-gray-500">
+                {productDetails.ProductName}
+              </p>
 
-              <p className=" text-red-600  text-4xl">
+              <p className=" text-red-400  text-2xl">
                 {" "}
                 Rs.&nbsp;{productDetails.ProductPrice}
               </p>
